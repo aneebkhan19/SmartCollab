@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -11,13 +12,14 @@ export default function Contact() {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     // Check for required fields
@@ -30,22 +32,50 @@ export default function Contact() {
       return;
     }
     
-    // Here you would typically send the form data to a server
-    // For now, we'll just show a success message
-    toast({
-      title: "Consultation Request Received",
-      description: "We'll contact you shortly to schedule your free AI consultation!",
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    try {
+      setIsSubmitting(true);
+      
+      // Send form data to the server
+      const response = await apiRequest('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.success) {
+        toast({
+          title: "Consultation Request Received",
+          description: "We'll contact you shortly to schedule your free AI consultation!",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: response.message || "Something went wrong, please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit your request. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
