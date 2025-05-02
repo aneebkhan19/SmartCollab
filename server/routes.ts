@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { db } from "@db";
 import { contactSubmissions, contactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
+import { handleChatRequest } from "./chat";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API endpoint for contact form submissions
@@ -56,6 +57,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+
+  // AI Chatbot endpoint
+  app.post('/api/chat', handleChatRequest);
 
   const httpServer = createServer(app);
 
