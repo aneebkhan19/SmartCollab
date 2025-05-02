@@ -1,4 +1,4 @@
-import AiNetwork from "@/components/ui/ai-network";
+import AiNetworkV2 from "@/components/ui/ai-network-v2";
 import AnimatedBlob from "@/components/ui/animated-blob";
 
 export default function Hero() {
@@ -49,8 +49,8 @@ export default function Hero() {
         <div className="relative max-w-5xl mx-auto">
           <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-10 pointer-events-none"></div>
           <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-2xl shadow-primary/10 bg-white reveal">
-            {/* AI Network Animation Component */}
-            <AiNetwork />
+            {/* Modern AI Network Animation Component */}
+            <AiNetworkV2 />
           </div>
         </div>
       </div>
