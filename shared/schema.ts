@@ -29,11 +29,14 @@ export const contactSubmissions = pgTable("contact_submissions", {
   createdAt: timestamp("created_at").defaultNow().notNull()
 });
 
-// Schema for contact form validation
-export const contactSubmissionSchema = createInsertSchema(contactSubmissions, {
-  name: (schema) => schema.min(2, "Name must be at least 2 characters"),
-  email: (schema) => schema.email("Must provide a valid email"),
-  message: (schema) => schema.min(5, "Message must be at least 5 characters")
+// Custom schema for contact form validation
+export const contactSubmissionSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Must provide a valid email"),
+  company: z.string().optional().nullable(),
+  phone: z.string().optional().nullable(),
+  service: z.string().optional().nullable(),
+  message: z.string().min(5, "Message must be at least 5 characters")
 });
 
 export type InsertContactSubmission = z.infer<typeof contactSubmissionSchema>;

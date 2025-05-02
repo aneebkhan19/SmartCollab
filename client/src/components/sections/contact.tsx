@@ -9,7 +9,7 @@ export default function Contact() {
     email: '',
     company: '',
     phone: '',
-    service: '',
+    service: 'development', // Default value to prevent validation issues
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -56,7 +56,7 @@ export default function Contact() {
           email: '',
           company: '',
           phone: '',
-          service: '',
+          service: 'development', // Maintain the default
           message: ''
         });
       } else {

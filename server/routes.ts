@@ -10,8 +10,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       console.log('Received contact form data:', req.body);
       
-      // Validate the request body using the schema
-      const validatedData = contactSubmissionSchema.safeParse(req.body);
+      // Ensure required fields are present
+      const { name, email, message } = req.body;
+      if (!name || !email || !message) {
+        console.log('Missing required fields');
+        return res.status(400).json({
+          success: false,
+          message: 'Missing required fields'
+        });
+      }
+      
+      // Create a sanitized data object with defaults for optional fields
+      const contactData = {
+        name,
+        email,
+        message,
+        company: req.body.company || null,
+        phone: req.body.phone || null,
+        service: req.body.service || 'development'
+      };
+      
+      // Validate the sanitized data
+      const validatedData = contactSubmissionSchema.safeParse(contactData);
       
       if (!validatedData.success) {
         // Return validation errors if schema validation fails
