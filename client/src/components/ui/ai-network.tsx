@@ -30,7 +30,7 @@ export default function AiNetwork() {
     const centralNode = {
       x: centerX,
       y: centerY,
-      radius: 16,
+      radius: 22,
       color: 'rgba(99, 102, 241, 0.9)',
       pulsate: true
     };
@@ -40,7 +40,7 @@ export default function AiNetwork() {
         id: "automation", 
         x: centerX - centerX * 0.4, 
         y: centerY - centerY * 0.4,
-        radius: 8,
+        radius: 12,
         color: 'rgba(99, 102, 241, 0.8)',
         label: "Automation",
         pulsate: true,
@@ -52,7 +52,7 @@ export default function AiNetwork() {
         id: "neural", 
         x: centerX - centerX * 0.4, 
         y: centerY + centerY * 0.4,
-        radius: 8,
+        radius: 12,
         color: 'rgba(147, 51, 234, 0.8)',
         label: "Neural Networks",
         pulsate: true,
@@ -64,7 +64,7 @@ export default function AiNetwork() {
         id: "ml", 
         x: centerX + centerX * 0.4, 
         y: centerY - centerY * 0.4,
-        radius: 8,
+        radius: 12,
         color: 'rgba(59, 130, 246, 0.8)',
         label: "Machine Learning",
         pulsate: true,
@@ -76,7 +76,7 @@ export default function AiNetwork() {
         id: "data", 
         x: centerX + centerX * 0.4, 
         y: centerY + centerY * 0.4,
-        radius: 8,
+        radius: 12,
         color: 'rgba(16, 185, 129, 0.8)',
         label: "Data Analytics",
         pulsate: true,
@@ -86,16 +86,34 @@ export default function AiNetwork() {
       }
     ];
     
-    // Add smaller particles
-    const particles = Array(20).fill(null).map(() => {
+    // Add smaller particles with improved colors
+    const particles = Array(40).fill(null).map(() => {
       const distance = Math.random() * centerX * 0.8;
       const angle = Math.random() * Math.PI * 2;
+      
+      // Create different color particles based on position
+      let particleColor;
+      const quadrant = Math.floor(angle / (Math.PI / 2));
+      
+      if (quadrant === 0) {
+        // Top-right - blue
+        particleColor = `rgba(59, 130, 246, ${0.3 + Math.random() * 0.4})`;
+      } else if (quadrant === 1) {
+        // Bottom-right - green
+        particleColor = `rgba(16, 185, 129, ${0.3 + Math.random() * 0.4})`;
+      } else if (quadrant === 2) {
+        // Bottom-left - purple
+        particleColor = `rgba(147, 51, 234, ${0.3 + Math.random() * 0.4})`;
+      } else {
+        // Top-left - indigo
+        particleColor = `rgba(99, 102, 241, ${0.3 + Math.random() * 0.4})`;
+      }
       
       return {
         x: centerX + distance * Math.cos(angle),
         y: centerY + distance * Math.sin(angle),
         radius: 1 + Math.random() * 3,
-        color: `rgba(${Math.floor(Math.random() * 100 + 156)}, ${Math.floor(Math.random() * 100 + 156)}, ${Math.floor(Math.random() * 255)}, ${0.2 + Math.random() * 0.3})`,
+        color: particleColor,
         angle,
         distance,
         speed: 0.0005 + Math.random() * 0.001,
@@ -112,16 +130,41 @@ export default function AiNetwork() {
       return gradient;
     };
     
-    // Draw lines from center to nodes with dashed effect
+    // Draw lines from center to nodes with dynamic glow effect
     const drawConnectionLines = () => {
       nodes.forEach(node => {
         if (node.connected) {
+          // First draw a wider, blurred line for glow effect
+          ctx.beginPath();
+          ctx.moveTo(centralNode.x, centralNode.y);
+          ctx.lineTo(node.x, node.y);
+          
+          // Different colors based on node type
+          let lineColor = 'rgba(99, 102, 241, 0.3)';
+          if (node.id === "ml") {
+            lineColor = 'rgba(59, 130, 246, 0.4)';
+          } else if (node.id === "neural") {
+            lineColor = 'rgba(147, 51, 234, 0.4)';
+          } else if (node.id === "data") {
+            lineColor = 'rgba(16, 185, 129, 0.4)';
+          } else if (node.id === "automation") {
+            lineColor = 'rgba(99, 102, 241, 0.4)';
+          }
+          
+          // Draw a wider line for glow
+          ctx.strokeStyle = lineColor;
+          ctx.lineWidth = 3;
+          ctx.globalAlpha = 0.3;
+          ctx.stroke();
+          ctx.globalAlpha = 1.0;
+          
+          // Draw the main line with dashes
           ctx.beginPath();
           ctx.moveTo(centralNode.x, centralNode.y);
           ctx.lineTo(node.x, node.y);
           ctx.setLineDash([2, 3]);
-          ctx.strokeStyle = 'rgba(99, 102, 241, 0.3)';
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = lineColor.replace('0.4', '0.8');
+          ctx.lineWidth = 1.5;
           ctx.stroke();
           ctx.setLineDash([]);
         }
@@ -160,13 +203,21 @@ export default function AiNetwork() {
         node.x, node.y, radius * 1.5
       );
       
-      // Extract color components for proper gradient
-      const colorMatch = node.color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
-      if (colorMatch) {
-        const [_, r, g, b, a = 1] = colorMatch;
-        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${parseFloat(a) * 0.5})`);
-        gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+      // Simplified gradient with fixed colors based on node type
+      if (node.id === "ml") {
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+      } else if (node.id === "neural") {
+        gradient.addColorStop(0, 'rgba(147, 51, 234, 0.5)');
+        gradient.addColorStop(1, 'rgba(147, 51, 234, 0)');
+      } else if (node.id === "data") {
+        gradient.addColorStop(0, 'rgba(16, 185, 129, 0.5)');
+        gradient.addColorStop(1, 'rgba(16, 185, 129, 0)');
+      } else if (node.id === "automation") {
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.5)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
       } else {
+        // Default for central node and others
         gradient.addColorStop(0, 'rgba(99, 102, 241, 0.5)');
         gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
       }
@@ -263,26 +314,28 @@ export default function AiNetwork() {
     <div className="relative h-80 md:h-[500px] w-full overflow-hidden">
       <canvas ref={canvasRef} className="w-full h-full bg-slate-900"></canvas>
       
-      {/* Central Icon/Label */}
+      {/* Central Icon/Label with glow effects */}
       <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-12 h-12 rounded-full bg-slate-900/80 backdrop-blur-sm flex items-center justify-center border border-indigo-500/30 shadow-lg shadow-indigo-500/30">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6 text-indigo-400" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M12 22v-5"></path>
-            <path d="M9 7V2"></path>
-            <path d="M15 7V2"></path>
-            <path d="M6 13V8"></path>
-            <path d="M18 13V8"></path>
-            <path d="M12 17a5 5 0 0 0 5-5c0-2.76-2.5-5-5-5s-5 2.24-5 5a5 5 0 0 0 5 5z"></path>
-          </svg>
+        <div className="w-16 h-16 rounded-full bg-slate-900/90 backdrop-blur flex items-center justify-center border-2 border-indigo-500/50 shadow-xl shadow-indigo-500/30 animate-pulse-slow">
+          <div className="w-12 h-12 rounded-full bg-indigo-900/50 flex items-center justify-center">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-7 w-7 text-indigo-300" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M12 22v-5"></path>
+              <path d="M9 7V2"></path>
+              <path d="M15 7V2"></path>
+              <path d="M6 13V8"></path>
+              <path d="M18 13V8"></path>
+              <path d="M12 17a5 5 0 0 0 5-5c0-2.76-2.5-5-5-5s-5 2.24-5 5a5 5 0 0 0 5 5z"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
