@@ -79,7 +79,7 @@ export default function Contact() {
                 <input 
                   type="text" 
                   id="name" 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900" 
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
@@ -92,7 +92,7 @@ export default function Contact() {
                 <input 
                   type="email" 
                   id="email" 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900" 
                   placeholder="you@company.com"
                   value={formData.email}
                   onChange={handleChange}
@@ -105,7 +105,7 @@ export default function Contact() {
                 <input 
                   type="text" 
                   id="company" 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900" 
                   placeholder="Your company"
                   value={formData.company}
                   onChange={handleChange}
@@ -117,7 +117,7 @@ export default function Contact() {
                 <input 
                   type="tel" 
                   id="phone" 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900" 
                   placeholder="(XXX) XXX-XXXX"
                   value={formData.phone}
                   onChange={handleChange}
@@ -128,7 +128,7 @@ export default function Contact() {
                 <label htmlFor="service" className="block text-slate-900 font-medium mb-2">What service are you interested in?</label>
                 <select 
                   id="service" 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900"
                   value={formData.service}
                   onChange={handleChange}
                 >
@@ -147,7 +147,7 @@ export default function Contact() {
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-slate-900" 
                   placeholder="Describe your goals, challenges, and timeline..."
                   value={formData.message}
                   onChange={handleChange}
