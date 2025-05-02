@@ -33,7 +33,7 @@ export default function Hero() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
             Building the Future of Software with <span className="text-gradient">AI Intelligence</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-700 mb-10 max-w-3xl mx-auto animate-slide-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-10 max-w-3xl mx-auto animate-slide-in" style={{animationDelay: '0.2s'}}>
             We don't just build software — we build intelligent systems that learn, automate, and evolve to help businesses scale smarter, faster, and more efficiently.
           </p>
           <div className="flex flex-wrap justify-center gap-4 animate-slide-in" style={{animationDelay: '0.4s'}}>
@@ -47,8 +47,7 @@ export default function Hero() {
         </div>
         
         <div className="relative max-w-5xl mx-auto">
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-10 pointer-events-none"></div>
-          <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-2xl shadow-primary/10 bg-white reveal">
+          <div className="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl shadow-primary/20 bg-slate-900 reveal">
             {/* Dynamic Particle Flow Animation */}
             <ParticleFlow />
           </div>
