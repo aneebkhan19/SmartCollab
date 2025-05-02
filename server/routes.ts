@@ -8,11 +8,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // API endpoint for contact form submissions
   app.post('/api/contact', async (req: Request, res: Response) => {
     try {
+      console.log('Received contact form data:', req.body);
+      
       // Validate the request body using the schema
       const validatedData = contactSubmissionSchema.safeParse(req.body);
       
       if (!validatedData.success) {
         // Return validation errors if schema validation fails
+        console.log('Validation failed:', validatedData.error.errors);
         return res.status(400).json({ 
           success: false, 
           message: 'Validation failed', 
