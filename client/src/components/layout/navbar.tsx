@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import Logo from "@/components/ui/logo";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <img src="/images/logo.png" alt="AiVoralabs Logo" className="h-9" />
+            <Logo />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
