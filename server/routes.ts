@@ -42,7 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // API endpoint to get all contact form submissions
   app.get('/api/contact', async (req: Request, res: Response) => {
     try {
-      const submissions = await db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
+      const submissions = await db.select().from(contactSubmissions);
       
       return res.status(200).json({ 
         success: true, 

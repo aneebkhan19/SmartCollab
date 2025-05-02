@@ -44,7 +44,7 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
       
-      if (response.success) {
+      if (response && response.success) {
         toast({
           title: "Consultation Request Received",
           description: "We'll contact you shortly to schedule your free AI consultation!",
@@ -62,7 +62,7 @@ export default function Contact() {
       } else {
         toast({
           title: "Error",
-          description: response.message || "Something went wrong, please try again.",
+          description: response?.message || "Something went wrong, please try again.",
           variant: "destructive"
         });
       }
@@ -203,9 +203,10 @@ export default function Contact() {
               <div className="md:col-span-2">
                 <button 
                   type="submit" 
-                  className="w-full bg-gradient-primary text-white font-bold py-4 px-6 rounded-lg hover:shadow-lg transition-all"
+                  className="w-full bg-gradient-primary text-white font-bold py-4 px-6 rounded-lg hover:shadow-lg transition-all disabled:opacity-70"
+                  disabled={isSubmitting}
                 >
-                  Book Your Free AI Consultation
+                  {isSubmitting ? 'Submitting...' : 'Book Your Free AI Consultation'}
                 </button>
                 <p className="text-center text-sm text-slate-700 mt-4">
                   By submitting this form, you agree to our <a href="#" className="text-primary hover:underline">Privacy Policy</a> and <a href="#" className="text-primary hover:underline">Terms of Service</a>.
