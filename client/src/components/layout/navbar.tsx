@@ -22,15 +22,8 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'py-4'}`}>
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse-slow"></div>
-              <div className="absolute inset-1 bg-gradient-primary rounded-full animate-spin-slow"></div>
-              <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold font-display text-sm">A</span>
-              </div>
-            </div>
-            <span className="font-display font-bold text-xl text-slate-900">Aivora<span className="text-primary">Labs</span></span>
+          <Link href="/" className="flex items-center">
+            <img src="/images/logo.png" alt="AiVoralabs Logo" className="h-8" />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">

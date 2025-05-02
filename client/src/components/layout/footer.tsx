@@ -4,15 +4,8 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
-            <a href="#" className="flex items-center space-x-2 mb-6">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-primary/20 rounded-full"></div>
-                <div className="absolute inset-1 bg-gradient-primary rounded-full"></div>
-                <div className="absolute inset-2 bg-slate-900 rounded-full flex items-center justify-center">
-                  <span className="text-primary font-bold font-display text-sm">A</span>
-                </div>
-              </div>
-              <span className="font-display font-bold text-xl text-white">Aivora<span className="text-primary">Labs</span></span>
+            <a href="#" className="flex items-center mb-6">
+              <img src="/images/logo.png" alt="AiVoralabs Logo" className="h-8" />
             </a>
             <p className="text-gray-400 mb-6">
               Building the future of software with AI intelligence. We combine deep tech expertise with artificial intelligence to help businesses scale smarter.
