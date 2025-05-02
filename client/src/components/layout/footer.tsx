@@ -1,5 +1,3 @@
-import Logo from "@/components/ui/logo";
-
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white py-12">
@@ -7,7 +5,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <a href="#" className="flex items-center mb-6">
-              <Logo variant="dark" />
+              <img src="/images/logo.png" alt="AiVoralabs Logo" className="h-9 brightness-150" />
             </a>
             <p className="text-gray-400 mb-6">
               Building the future of software with AI intelligence. We combine deep tech expertise with artificial intelligence to help businesses scale smarter.
