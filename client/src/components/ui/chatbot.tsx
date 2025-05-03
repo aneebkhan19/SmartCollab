@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { apiRequest } from '@/lib/queryClient';
-import { X, Send, ChevronDown, Loader2, Bot, Sparkles, Robot, BrainCircuit, MessageCircle } from 'lucide-react';
+import { X, Send, ChevronDown, Loader2, BrainCircuit, MessageCircle, Sparkles } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 
