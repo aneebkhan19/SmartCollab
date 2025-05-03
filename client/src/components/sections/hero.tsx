@@ -28,20 +28,20 @@ export default function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 animate-fade-in">
-            Redefining Software Development with AI
+            Premier AI Software Development Company
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
-            Building the Future of Software with <span className="text-gradient">AI Intelligence</span>
+            Advanced <span className="text-gradient">Artificial Intelligence</span> Solutions for Modern Businesses
           </h1>
           <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-10 max-w-3xl mx-auto animate-slide-in" style={{animationDelay: '0.2s'}}>
-            We don't just build software — we build intelligent systems that learn, automate, and evolve to help businesses scale smarter, faster, and more efficiently.
+            We specialize in machine learning, NLP, and conversational AI to build intelligent systems that learn, automate, and evolve — helping businesses achieve digital transformation through cutting-edge AI technology.
           </p>
           <div className="flex flex-wrap justify-center gap-4 animate-slide-in" style={{animationDelay: '0.4s'}}>
             <a href="#contact" className="bg-gradient-primary hover:shadow-lg shadow-primary/20 text-white px-8 py-3 rounded-full font-medium transition-all">
-              Book a Free AI Consultation
+              Get Custom AI Solution
             </a>
             <a href="#services" className="bg-white border border-gray-200 hover:border-primary text-slate-900 px-8 py-3 rounded-full font-medium transition-all">
-              Explore Our Services
+              Explore AI Services
             </a>
           </div>
         </div>

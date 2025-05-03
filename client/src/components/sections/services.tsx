@@ -70,10 +70,10 @@ export default function Services() {
     <section id="services" className="py-20">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16 reveal">
-          <span className="text-primary font-medium">Our Expertise</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-6">AI-Enhanced Services</h2>
+          <span className="text-primary font-medium">AI Software Development & Solutions</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-6">Cutting-Edge Artificial Intelligence Services</h2>
           <p className="text-slate-700 text-lg">
-            We combine deep tech expertise with artificial intelligence to help businesses scale smarter, faster, and more efficiently.
+            We deliver advanced machine learning, natural language processing, and intelligent automation solutions to transform business operations and create competitive advantages through AI technology.
           </p>
         </div>
         
