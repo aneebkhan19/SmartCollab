@@ -4,10 +4,13 @@ export default function Logo({ className = "", variant = "light" }: { className?
   // Add brightness adjustment for dark background if needed
   const brightness = variant === "dark" ? "brightness-150 contrast-125" : "";
   
+  // Force reload by adding timestamp to prevent caching
+  const timestamp = new Date().getTime();
+  
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/Logo.png" 
+        src={`/logo.png?t=${timestamp}`}
         alt="Aivora Labs" 
         className={`h-10 w-auto ${brightness}`} 
         onError={(e) => {
