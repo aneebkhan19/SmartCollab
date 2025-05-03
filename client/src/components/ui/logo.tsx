@@ -6,7 +6,7 @@ export default function Logo({ className = "", variant = "light" }: { className?
   return (
     <div className={`flex items-center ${className}`}>
       <img 
-        src="/logo.png"
+        src="/images/logo.png"
         alt="Aivora Labs" 
         className={`h-10 w-auto ${brightness}`} 
       />
