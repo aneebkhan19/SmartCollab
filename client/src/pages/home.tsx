@@ -7,7 +7,7 @@ import Services from "@/components/sections/services";
 import Process from "@/components/sections/process";
 import About from "@/components/sections/about";
 import Contact from "@/components/sections/contact";
-//import BackToTop from "@/components/ui/backtotop"; //Removed import
+import BackToTop from "@/components/ui/backtotop";
 
 export default function Home() {
   // Initialize reveal effect for elements with class 'reveal'
@@ -50,7 +50,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      {/* <BackToTop /> */} {/*Removed BackToTop component*/}
+      <BackToTop />
     </>
   );
 }
