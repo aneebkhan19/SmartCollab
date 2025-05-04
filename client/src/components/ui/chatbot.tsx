@@ -157,7 +157,7 @@ export default function Chatbot() {
             exit="exit"
             variants={greetingBubbleVariants}
           >
-            <div className="bg-white p-3 pr-4 rounded-tl-xl rounded-tr-xl rounded-bl-xl shadow-lg border border-indigo-100 max-w-[200px] relative">
+            <div className="bg-white py-2 px-4 rounded-tl-xl rounded-tr-xl rounded-bl-xl shadow-lg border border-indigo-100 whitespace-nowrap relative">
               <p className="text-sm font-medium text-gray-800">How may I help you today?</p>
               <div className="absolute -bottom-2 right-5 w-4 h-4 bg-white border-r border-b border-indigo-100 transform rotate-45"></div>
             </div>
