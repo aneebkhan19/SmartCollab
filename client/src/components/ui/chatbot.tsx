@@ -187,7 +187,9 @@ export default function Chatbot() {
                 variants={robotIconVariants}
                 className="relative z-10"
               >
-                <BrainCircuit className="w-7 h-7 text-white" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                </svg>
               </motion.div>
             </div>
           </Button>
@@ -210,7 +212,9 @@ export default function Chatbot() {
               <div className="relative flex items-center justify-between p-4 text-white z-10">
                 <div className="flex items-center gap-2">
                   <div className="bg-white/20 p-1.5 rounded-lg">
-                    <BrainCircuit className="w-5 h-5" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                  </svg>
                   </div>
                   <div>
                     <h3 className="font-semibold">Aivora AI Assistant</h3>
@@ -263,7 +267,9 @@ export default function Chatbot() {
                   >
                     {msg.role === 'assistant' && (
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
-                        <BrainCircuit className="w-4 h-4 text-white" />
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                        </svg>
                       </div>
                     )}
                     <div 
@@ -285,7 +291,9 @@ export default function Chatbot() {
                 {sendMessageMutation.isPending && (
                   <div className="flex justify-start">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
-                      <BrainCircuit className="w-4 h-4 text-white" />
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                      </svg>
                     </div>
                     <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-3 shadow-sm">
                       <div className="flex items-center gap-2">
