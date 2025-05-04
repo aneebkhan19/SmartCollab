@@ -188,7 +188,12 @@ export default function Chatbot() {
                 className="relative z-10"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
                 </svg>
               </motion.div>
             </div>
@@ -213,8 +218,13 @@ export default function Chatbot() {
                 <div className="flex items-center gap-2">
                   <div className="bg-white/20 p-1.5 rounded-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
-                  </svg>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
+                    </svg>
                   </div>
                   <div>
                     <h3 className="font-semibold">Aivora AI Assistant</h3>
@@ -268,7 +278,12 @@ export default function Chatbot() {
                     {msg.role === 'assistant' && (
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
                         </svg>
                       </div>
                     )}
@@ -292,7 +307,12 @@ export default function Chatbot() {
                   <div className="flex justify-start">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6a1 1 0 011 1v4a1 1 0 01-1 1H9a1 1 0 01-1-1v-4a1 1 0 011-1z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
                       </svg>
                     </div>
                     <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-3 shadow-sm">
