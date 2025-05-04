@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { apiRequest } from '@/lib/queryClient';
-import { X, Send, ChevronDown, Loader2, BrainCircuit, MessageCircle, Sparkles } from 'lucide-react';
+import { X, Send, ChevronDown, Loader2, MessageCircle } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -25,12 +25,10 @@ export default function Chatbot() {
 
   // Toggle greeting message visibility
   useEffect(() => {
-    // Show greeting 2 seconds after component mounts
     const timer = setTimeout(() => {
       setShowGreeting(true);
     }, 3000);
     
-    // Hide greeting after it's been shown for 7 seconds
     const hideTimer = setTimeout(() => {
       setShowGreeting(false);
     }, 10000);
@@ -98,7 +96,7 @@ export default function Chatbot() {
     }
   };
 
-  // Animation variants for the robot icon
+  // Animation variants
   const robotIconVariants = {
     hover: {
       scale: 1.1,
@@ -111,7 +109,6 @@ export default function Chatbot() {
     }
   };
 
-  // Animation variants for typing dots
   const typingDotsVariants = {
     animate: {
       opacity: [0.2, 1, 0.2],
@@ -122,7 +119,6 @@ export default function Chatbot() {
     }
   };
 
-  // Animation variants for greeting bubble
   const greetingBubbleVariants = {
     hidden: { opacity: 0, scale: 0.7, y: 20 },
     visible: { 
@@ -147,7 +143,7 @@ export default function Chatbot() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* Greeting Bubble - Shown above the chat button */}
+      {/* Greeting Bubble */}
       <AnimatePresence>
         {!isOpen && showGreeting && (
           <motion.div
@@ -157,7 +153,7 @@ export default function Chatbot() {
             exit="exit"
             variants={greetingBubbleVariants}
           >
-            <div className="bg-white py-2 px-4 rounded-tl-xl rounded-tr-xl rounded-bl-xl shadow-lg border border-indigo-100 whitespace-nowrap relative">
+            <div className="bg-white p-3 pr-4 rounded-tl-xl rounded-tr-xl rounded-bl-xl shadow-lg border border-indigo-100 max-w-[200px] relative">
               <p className="text-sm font-medium text-gray-800">How may I help you today?</p>
               <div className="absolute -bottom-2 right-5 w-4 h-4 bg-white border-r border-b border-indigo-100 transform rotate-45"></div>
             </div>
@@ -182,19 +178,16 @@ export default function Chatbot() {
                 <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-purple-300 blur-sm animate-pulse delay-150"></div>
               </div>
               
-              {/* Robot icon with animation */}
+              {/* AI Logo icon with animation */}
               <motion.div
                 variants={robotIconVariants}
                 className="relative z-10"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
-                </svg>
+                <img 
+                  src="/images/ai-logo.png" 
+                  alt="AI Assistant" 
+                  className="w-9 h-9 rounded-sm"
+                />
               </motion.div>
             </div>
           </Button>
@@ -217,14 +210,11 @@ export default function Chatbot() {
               <div className="relative flex items-center justify-between p-4 text-white z-10">
                 <div className="flex items-center gap-2">
                   <div className="bg-white/20 p-1.5 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
-                    </svg>
+                    <img 
+                      src="/images/ai-logo.png" 
+                      alt="AI Assistant" 
+                      className="w-5 h-5 rounded-sm"
+                    />
                   </div>
                   <div>
                     <h3 className="font-semibold">Aivora AI Assistant</h3>
@@ -277,14 +267,11 @@ export default function Chatbot() {
                   >
                     {msg.role === 'assistant' && (
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
-                        </svg>
+                        <img 
+                          src="/images/ai-logo.png" 
+                          alt="AI Assistant" 
+                          className="w-5 h-5 rounded-sm"
+                        />
                       </div>
                     )}
                     <div 
@@ -306,14 +293,11 @@ export default function Chatbot() {
                 {sendMessageMutation.isPending && (
                   <div className="flex justify-start">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mr-2 shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 8h12a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v.01" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 14v.01" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18v2" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 22h8" />
-                      </svg>
+                      <img 
+                        src="/images/ai-logo.png" 
+                        alt="AI Assistant" 
+                        className="w-5 h-5 rounded-sm"
+                      />
                     </div>
                     <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-3 shadow-sm">
                       <div className="flex items-center gap-2">
