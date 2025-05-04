@@ -10,7 +10,7 @@ export default function Logo({ className = "", variant = "light" }: { className?
         src="/images/logo.png"
         alt="Aivora Labs" 
         className={`h-12 w-auto ${brightness}`} 
-        style={{ maxWidth: '220px' }}
+        style={{ maxWidth: '220px', objectFit: 'contain' }}
       />
     </div>
   );

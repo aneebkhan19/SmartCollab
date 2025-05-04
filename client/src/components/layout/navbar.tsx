@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <Logo />
+            <Logo className="h-12" />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
